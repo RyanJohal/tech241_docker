@@ -24,6 +24,12 @@ Docker API is a set of interfaces and endpoints that allow communication with th
 In summary, the Docker API acts as the bridge between users (clients) and the Docker daemon (server), allowing programmatic access to the Docker ecosystem's essential functionalities for container creation, management, and interaction.
 ![Alt text](images/dockerarchitechture.png)
 
+### Install nginx image using api
+```docker run -d -p 80:80 nginx```
+
+
+enter vm created through previous command: ``` docker excec -it 417efc0c5e4f sh```
+
 ## How to commit changes and push to docker repo
 1. Enter container ID and choose name```docker commit 417efc0c5e4f tech241-nginx```
 2. ```docker tag tech241-nginx ryanjohal/tech241-docker```
