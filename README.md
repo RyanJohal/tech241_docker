@@ -35,3 +35,57 @@ enter vm created through previous command: ``` docker excec -it 417efc0c5e4f sh`
 2. ```docker tag tech241-nginx ryanjohal/tech241-docker```
 3. ```docker push ryanjohal/tech241-docker```
 4. Download image from docker and apply to local host ```docker run -d -p 90:80 ryanjohal/tech241-docker```
+
+```docker stop <docker id>``` - stop container
+```docker start <docker id>``` - start container
+
+# Nginx through container
+```
+# select the base image of nginx
+
+FROM nginx
+
+# label it 
+
+LABEL MAINTAINER=krzysztof@sparta
+
+# copy index.html from localhost to default nginx index.html location
+
+COPY index.html /usr/share/nginx/html/
+ 
+# port mapping or exposing the required port
+
+EXPOSE 80
+
+# command to launch the web server 
+
+CMD ["nginx", "-g", "daemon off;"]
+
+```
+
+# Launching app through container
+
+
+```
+# Base image node js 12
+FROM node:12
+
+# Set working directory
+WORKDIR /app
+
+# Copy app to container
+COPY app /app
+
+# Install dependencies
+RUN npm install
+
+# Expose port
+EXPOSE 3000
+
+# Startup command for app
+CMD ["npm", "start"]
+```
+Then:
+```docker build -t ryanjohal/tech241-node-app:v1 .``` - build from current directory
+
+```docker run -d -p 3000:3000 ryanjohal/tech241-node-app:v1``` - run container on port 3000
