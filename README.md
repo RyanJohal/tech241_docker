@@ -89,3 +89,5 @@ Then:
 ```docker build -t ryanjohal/tech241-node-app:v1 .``` - build from current directory
 
 ```docker run -d -p 3000:3000 ryanjohal/tech241-node-app:v1``` - run container on port 3000 
+
+

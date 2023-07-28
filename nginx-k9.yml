@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1 # which api to use for deployment
+kind: Deployment # pod - service what kind of service/object ypi wamt tp create
+# Name deployment
+metadata:
+  name: nginx-deployment
+
+spec:
+  selector:
+    matchLabels:
+      app: nginx # look for this label to ,atch with k8 service
+# Create a replica set of this with instances/pods
+  replicas: 3
+# template to use its label for K8 service to launch in the browser
+  template:
+    metadata:
+      labels:
+        app: nginx # this label connects to the service or any other k8 components
+# Define the container spec
+    spec:
+      containers:
+      - name: nginx
+        image: ryanjohal/tech241-nginx:v1
+        ports:
+        - containerPort: 80
+
