@@ -47,7 +47,7 @@ FROM nginx
 
 # label it 
 
-LABEL MAINTAINER=krzysztof@sparta
+LABEL MAINTAINER=ryan@sparta
 
 # copy index.html from localhost to default nginx index.html location
 
