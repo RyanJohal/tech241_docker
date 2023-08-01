@@ -35,6 +35,7 @@ enter vm created through previous command: ``` docker excec -it 417efc0c5e4f sh`
 2. ```docker tag tech241-nginx ryanjohal/tech241-docker```
 3. ```docker push ryanjohal/tech241-docker```
 4. Download image from docker and apply to local host ```docker run -d -p 90:80 ryanjohal/tech241-docker```
+5. ssh into container ```winpty docker exec -it 63b8551c6626 sh```
 
 ```docker stop <docker id>``` - stop container
 ```docker start <docker id>``` - start container

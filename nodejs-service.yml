@@ -16,7 +16,7 @@ spec:
     targetPort: 3000
 # Lets define the selector and label to connect to nginx deplotment
   selector:
-    app: nodejs-app # this label connects this service to deployment
+    app: node # this label connects this service to deployment
 
   # Creating NodePort type of deployment
   type: NodePort # also use LoadBalancer - for local use cluster IP
